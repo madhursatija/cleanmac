@@ -38,6 +38,10 @@
     <key>NSHighResolutionCapable</key>
     <true/>
 
+    <!-- App Icon -->
+    <key>CFBundleIconFile</key>
+    <string>AppIcon</string>
+
     <!-- Supports dark mode -->
     <key>NSRequiresAquaSystemAppearance</key>
     <false/>

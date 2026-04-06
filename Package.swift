@@ -17,7 +17,8 @@ let package = Package(
                 "Resources/Info.plist"
             ],
             resources: [
-                .copy("Resources/CleanMac.entitlements")
+                .copy("Resources/CleanMac.entitlements"),
+                .copy("Resources/AppIcon.icns")
             ],
             swiftSettings: [
                 .unsafeFlags(["-framework", "Carbon"])

@@ -46,6 +46,7 @@ jobs:
           mkdir -p CleanMac.app/Contents/Resources
           cp .build/release/CleanMac CleanMac.app/Contents/MacOS/CleanMac
           cp CleanMac/Resources/Info.plist CleanMac.app/Contents/Info.plist
+          cp CleanMac/Resources/AppIcon.icns CleanMac.app/Contents/Resources/AppIcon.icns
           chmod +x CleanMac.app/Contents/MacOS/CleanMac
 
       - name: Create DMG
