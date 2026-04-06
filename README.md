@@ -25,17 +25,11 @@
 
 ## Installation
 
-### Download (Recommended)
+### Download (Manual)
 
 Download the latest `.dmg` from the [Releases](https://github.com/madhursatija/cleanmac/releases) page.
 
-> **Note:** The app is not notarized. On first launch, right-click → Open → Open to bypass Gatekeeper. This only needs to be done once.
-
-### Homebrew
-
-```sh
-brew install --cask cleanmac
-```
+> **Note:** The app is not notarized. On first launch, right-click the app in Finder → **Open** → **Open** to bypass Gatekeeper. This only needs to be done once.
 
 ### Build from Source
 
