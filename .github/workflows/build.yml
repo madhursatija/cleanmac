@@ -1,0 +1,63 @@
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    name: Build & Test
+    runs-on: macos-14
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode.app
+
+      - name: Swift version
+        run: swift --version
+
+      - name: Build (debug)
+        run: swift build
+
+      - name: Build (release)
+        run: swift build -c release
+
+  release:
+    name: Create Release DMG
+    runs-on: macos-14
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build release binary
+        run: swift build -c release
+
+      - name: Package app bundle
+        run: |
+          mkdir -p CleanMac.app/Contents/MacOS
+          mkdir -p CleanMac.app/Contents/Resources
+          cp .build/release/CleanMac CleanMac.app/Contents/MacOS/CleanMac
+          cp CleanMac/Resources/Info.plist CleanMac.app/Contents/Info.plist
+          chmod +x CleanMac.app/Contents/MacOS/CleanMac
+
+      - name: Create DMG
+        run: |
+          hdiutil create -volname "CleanMac" \
+            -srcfolder CleanMac.app \
+            -ov -format UDZO \
+            CleanMac.dmg
+
+      - name: Upload DMG to Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: CleanMac.dmg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

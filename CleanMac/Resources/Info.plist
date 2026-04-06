@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Hide from Dock — pure menu bar app -->
+    <key>LSUIElement</key>
+    <true/>
+
+    <!-- App identity -->
+    <key>CFBundleName</key>
+    <string>CleanMac</string>
+    <key>CFBundleDisplayName</key>
+    <string>CleanMac</string>
+    <key>CFBundleIdentifier</key>
+    <string>com.madhursatija.CleanMac</string>
+    <key>CFBundleVersion</key>
+    <string>1</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.0.0</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleExecutable</key>
+    <string>CleanMac</string>
+
+    <!-- Minimum macOS version -->
+    <key>LSMinimumSystemVersion</key>
+    <string>13.0</string>
+
+    <!-- Accessibility permission usage description -->
+    <key>NSAccessibilityUsageDescription</key>
+    <string>CleanMac needs Accessibility access to block keyboard and trackpad input during cleaning mode. No keystrokes are logged or stored.</string>
+
+    <!-- Notification usage -->
+    <key>NSUserNotificationsUsageDescription</key>
+    <string>CleanMac sends reminders to clean your Mac at your chosen interval.</string>
+
+    <!-- High resolution support -->
+    <key>NSHighResolutionCapable</key>
+    <true/>
+
+    <!-- Supports dark mode -->
+    <key>NSRequiresAquaSystemAppearance</key>
+    <false/>
+</dict>
+</plist>
